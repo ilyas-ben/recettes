@@ -1,0 +1,189 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+
+		<!-- Configuration pour UtilisateurAction -->
+		<action name="inscription"
+			class="ma.ac.uir.presentation.UtilisateurAction" method="inscription">
+			<result name="success">/action-message.jsp</result>
+			<result name="error">/action-message.jsp</result>
+		</action>
+		<action name="connexion"
+			class="ma.ac.uir.presentation.UtilisateurAction" method="connexion">
+			<result name="success">/main.jsp</result>
+			<result name="error">/action-message.jsp</result>
+		</action>
+		<action name="logout"
+			class="ma.ac.uir.presentation.UtilisateurAction" method="logout">
+			<result name="success">/action-message.jsp</result>
+			<result name="error">/action-message.jsp</result>
+		</action>
+		<action name="afficherProfil"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="afficherProfil">
+			<result name="success">/profil.jsp</result>
+			<result name="error">/action-message.jsp</result>
+		</action>
+		<action name="afficherProfilPourModif"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="afficherProfil">
+			<result name="success">/profil-edit.jsp</result>
+			<result name="error">/action-message.jsp</result>
+		</action>
+		<action name="miseAJourProfil"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="miseAJourProfil">
+			<result name="success" type="redirectAction">
+				<param name="actionName">afficherProfil</param>
+			</result>
+			<result name="error">/actionMessage.jsp</result>
+		</action>
+		<action name="supprimerCompte"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="supprimerCompte">
+			<result name="success">/action-message.jsp</result>
+			<result name="error">/action-message.jsp</result>
+		</action>
+
+
+		<!-- Configuration pour RecetteAction -->
+		<action name="ajouterRecetteForm"
+			class="ma.ac.uir.presentation.RecetteAction"
+			method="ajouterRecetteForm">
+			<result name="success">/ajouterRecette/ajouterRecetteForm.jsp</result>
+			<result name="error">/ajouterRecette/recette-ajoutee-error.html
+			</result>
+		</action>
+		<action name="ajouterRecetteSubmit"
+			class="ma.ac.uir.presentation.RecetteAction"
+			method="ajouterRecetteSubmit">
+			<result name="success">/ajouterRecette/recette-ajoutee-success.html</result>
+			<result name="error">/ajouterRecette/recette-ajoutee-error.html
+			</result>
+		</action>
+		<action name="recetteByIdDetail"
+			class="ma.ac.uir.presentation.RecetteAction" method="getRecetteById">
+			<result name="success">/recetteIdDetail/recetteIdDetail-succes.jsp
+			</result>
+			<result name="error">/recetteIdDetail/recetteIdDetail-error.html
+			</result>
+		</action>
+		<action name="obtenirRecette"
+			class="ma.ac.uir.presentation.RecetteAction" method="obtenirRecette">
+			<result name="success">/recette-detail.jsp</result>
+			<result name="error">/recette-detail-error.jsp</result>
+		</action>
+		<action name="listerRecettes"
+			class="ma.ac.uir.presentation.RecetteAction" method="listerRecettes">
+			<result name="success">/recettes-liste.jsp</result>
+			<result name="error">/recettes-liste-error.jsp</result>
+		</action>
+		<action name="getRecetteByName"
+			class="ma.ac.uir.presentation.RecetteAction" method="getRecetteByName">
+			<result name="success">/main.jsp</result>
+			<result name="error">/recettes-liste-error.jsp</result>
+		</action>
+		<action name="mettreAJourRecetteForm"
+			class="ma.ac.uir.presentation.RecetteAction"
+			method="mettreAjourRecetteForm">
+			<result name="success">/mettreAJourRecette/modifierRecetteForm.jsp
+			</result>
+			<result name="error">/mettreAJourRecette/recette-mise-a-jour-error.html
+			</result>
+		</action>
+		<action name="mettreAJourRecetteSubmit"
+			class="ma.ac.uir.presentation.RecetteAction"
+			method="mettreAJourRecetteSubmit">
+			<result name="success">/mettreAJourRecette/recette-mise-a-jour-success.jsp
+			</result>
+			<result name="error">/mettreAJourRecette/recette-mise-a-jour-error.html
+			</result>
+		</action>
+
+		<action name="deleteForm"
+			class="ma.ac.uir.presentation.RecetteAction"
+			method="supprimerRecetteForm">
+			<result name="success">/supprimerRecette/recette-supprimee-success.jsp</result>
+			<result name="error">/supprimerRecette/recette-supprimee-error.jsp</result>
+		</action>
+
+		<action name="deleteSubmit"
+			class="ma.ac.uir.presentation.RecetteAction"
+			method="supprimerRecetteSubmit">
+			<result name="success">/supprimerRecette/recette-supprimee-success.html
+			</result>
+			<result name="error">/supprimerRecette/recette-supprimee-error.html
+			</result>
+		</action>
+
+
+		<action name="myRecipes"
+			class="ma.ac.uir.presentation.RecetteAction" method="myRecipes">
+			<result name="success">mesRecettes/mesRecettes-success.jsp</result>
+			<result name="error"> mesRecettes/mesRecettes-error.html</result>
+		</action>
+
+
+		<!-- Favoris -->
+
+		<action name="favoris"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="ListerFavorites">
+			<result name="success">favorites/myfavorites-success.jsp</result>
+			<result name="error"> favorites/myfavorites-error.html</result>
+		</action>
+
+		<action name="ajouterFavoris"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="ajouterFavoris">
+			<result name="success">ajouterFavoris/success.html</result>
+			<result name="error"> ajouterFavoris/error.html</result>
+		</action>
+
+		<action name="supprimerFavoris"
+			class="ma.ac.uir.presentation.UtilisateurAction"
+			method="deleteFavorites">
+			<result name="success">supprimerFavoris/success.html</result>
+			<result name="error"> favoris</result>
+		</action>
+
+
+		<!-- Configuration pour IngredientAction -->
+
+
+
+		<!-- Configuration pour CategorieAction -->
+
+		<action name="filterRecetteParCategorie"
+			class="ma.ac.uir.presentation.RecetteAction" method="filtrerParCategorie">
+			<result name="success">main.jsp</result>
+			<result name="error"> ajouterAvis/error.html</result>
+		</action>
+
+
+		<!-- Configuration pour AvisAction -->
+
+		<action name="ajouterAvis"
+			class="ma.ac.uir.presentation.AvisAction" method="ajouterAvis">
+			<result name="success">ajouterAvis/success.html</result>
+			<result name="error"> ajouterAvis/error.html</result>
+		</action>
+
+		<action name="modifierAvis"
+			class="ma.ac.uir.presentation.AvisAction" method="modifierAvis">
+			<result name="success">modifierAvis/success.html</result>
+			<result name="error"> modifierAvis/error.html</result>
+		</action>
+
+		<action name="supprimerAvis"
+			class="ma.ac.uir.presentation.AvisAction" method="supprimerAvis">
+
+			<result name="success">supprimerAvis/success.html</result>
+			<result name="error"> supprimerAvis/error.html</result>
+		</action>
+
+
+
+	</package>
+</struts>
